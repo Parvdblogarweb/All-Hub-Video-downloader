@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free unlimited video downloader for YouTube, Facebook, Instagram, TikTok and more. Download videos in HD quality without registration.">
+    <meta name="keywords" content="video downloader, youtube downloader, facebook video download, instagram downloader, tiktok downloader, free video download">
+    <title>All Hub Video Downloader | Free Unlimited HD Video Downloads</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⬇️</text></svg>">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary: #3f37c9;
+            --accent: #4895ef;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4cc9f0;
+            --warning: #f72585;
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7ff;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: var(--gradient);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: white;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+            background: linear-gradient(135deg, #f5f7ff 0%, #e8ecff 100%);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: var(--dark);
+        }
+
+        .download-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .input-group {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+
+        .input-group input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: var(--radius) 0 0 var(--radius);
+            font-size: 1rem;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .input-group input:focus {
+            border-color: var(--accent);
+        }
+
+        .input-group button {
+            padding: 0 20px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .input-group button:hover {
+            background: var(--primary-dark);
+        }
+
+        .format-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 1rem;
+        }
+
+        .format-option {
+            padding: 8px 15px;
+            background: #e9ecef;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .format-option:hover, .format-option.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .features {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: var(--radius);
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .supported-sites {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #f5f7ff 0%, #e8ecff 100%);
+        }
+
+        .sites-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .site-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .site-card:hover {
+            transform: scale(1.05);
+        }
+
+        .site-icon {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #f8f9fa;
+            font-size: 1.5rem;
+        }
+
+        .how-to-use {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .steps {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .step {
+            display: flex;
+            margin-bottom: 2rem;
+            gap: 1.5rem;
+        }
+
+        .step-number {
+            min-width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .faq {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #f5f7ff 0%, #e8ecff 100%);
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer.active {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 500px;
+        }
+
+        .faq-toggle {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-toggle.active {
+            transform: rotate(180deg);
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-column a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #495057;
+            color: #adb5bd;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                width: 100%;
+            }
+
+            nav.active {
+                max-height: 300px;
+                margin-top: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .download-form {
+                padding: 1.5rem;
+            }
+
+            .input-group {
+                flex-direction: column;
+            }
+
+            .input-group input {
+                border-radius: var(--radius);
+                margin-bottom: 10px;
+            }
+
+            .input-group button {
+                border-radius: var(--radius);
+                padding: 12px;
+            }
+
+            .step {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .step-number {
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        /* Loading spinner */
+        .spinner {
+            display: none;
+            width: 40px;
+            height: 40px;
+            margin: 20px auto;
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            border-top-color: var(--primary);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Results container */
+        .results {
+            display: none;
+            margin-top: 2rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .download-btn {
+            padding: 8px 15px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .download-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius);
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .close-modal {
+            float: right;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Dark mode toggle */
+        .dark-mode-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 99;
+        }
+
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .hero,
+        body.dark-mode .supported-sites,
+        body.dark-mode .faq {
+            background: #1e1e1e;
+        }
+
+        body.dark-mode .feature-card,
+        body.dark-mode .download-form,
+        body.dark-mode .site-card,
+        body.dark-mode .faq-item,
+        body.dark-mode .results,
+        body.dark-mode .modal-content {
+            background: #2d2d2d;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .feature-card h3,
+        body.dark-mode .result-item {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .input-group input {
+            background: #3d3d3d;
+            color: #e0e0e0;
+            border-color: #444;
+        }
+
+        body.dark-mode .format-option {
+            background: #3d3d3d;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .format-option:hover,
+        body.dark-mode .format-option.active {
+            background: var(--primary);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <span class="logo-icon">⬇️</span>
+                <span>All Hub Video Downloader</span>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#supported-sites">Supported Sites</a></li>
+                    <li><a href="#how-to-use">How to Use</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Download Videos from Any Platform</h1>
+            <p>Free, unlimited, high-quality video downloads from YouTube, Facebook, Instagram, TikTok and more. No registration required.</p>
+            
+            <div class="download-form">
+                <div class="input-group">
+                    <input type="text" id="videoUrl" placeholder="Paste video URL here..." autocomplete="off">
+                    <button id="downloadBtn">Download</button>
+                </div>
+                <div class="format-options">
+                    <div class="format-option active" data-format="mp4">MP4 (Video)</div>
+                    <div class="format-option" data-format="mp3">MP3 (Audio)</div>
+                    <div class="format-option" data-format="hd">HD 1080p</div>
+                    <div class="format-option" data-format="4k">4K (When available)</div>
+                </div>
+                
+                <div class="spinner" id="loadingSpinner"></div>
+                
+                <div class="results" id="resultsContainer">
+                    <h3>Available Formats:</h3>
+                    <div id="resultsList"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose All Hub Downloader?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Super Fast</h3>
+                    <p>Download videos at maximum speed with our optimized servers and technology.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>100% Safe</h3>
+                    <p>No malware, no viruses, no registration required. Your privacy is protected.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💯</div>
+                    <h3>High Quality</h3>
+                    <p>Download videos in HD, Full HD, 2K, 4K, and even 8K when available.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">♾️</div>
+                    <h3>Unlimited Downloads</h3>
+                    <p>No limits on the number of videos you can download. Completely free forever.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>All Devices</h3>
+                    <p>Works perfectly on desktop, tablet and mobile. No app installation needed.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Multi-Site Support</h3>
+                    <p>Download from 1000+ sites including YouTube, Facebook, Instagram, TikTok and more.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="supported-sites" id="supported-sites">
+        <div class="container">
+            <h2 class="section-title">Supported Platforms</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem;">All Hub Video Downloader supports videos from all these platforms and many more:</p>
+            <div class="sites-grid">
+                <div class="site-card">
+                    <div class="site-icon">YT</div>
+                    <h3>YouTube</h3>
+                </div>
+                <div class="site-card">
+                    <div class="site-icon">FB</div>
+                    <h3>Facebook</h3>
+                </div>
+                <div class="site-card">
+                    <div class="site-icon">IG</div>
+                    <h3>Instagram</h3>
+                </div>
+                <div class="site-card">
+                    <div class="site-icon">TT</div>
+                    <h3>TikTok</h3>
+                </div>
+                <div class="site-card">
+                    <div class="site-icon">TW</div>
+                    <h3>Twitter</h3>
+                </div>
+                <div class="site-card">
+                    <div class="site-icon">VM</div>
+                    <h3>Vimeo</h3>
+                </div>
+                <div class="site-card">
+                    <div class="site-icon">DM</div>
+                    <h3>Dailymotion</h3>
+                </div>
+                <div class="site-card">
+                    <div class="site-icon">RD</div>
+                    <h3>Reddit</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-to-use" id="how-to-use">
+        <div class="container">
+            <h2 class="section-title">How to Download Videos</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Copy Video URL</h3>
+                        <p>Go to the video you want to download and copy its URL from the address bar or share button.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Paste URL</h3>
+                        <p>Paste the video URL in the input field above and select your preferred format (MP4, MP3, HD, etc.).</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Download</h3>
+                        <p>Click the "Download" button and wait a few seconds. Your download will start automatically.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is All Hub Video Downloader free to use?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, our service is completely free with no hidden charges. You can download as many videos as you want without any limitations.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do I need to install any software?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No, All Hub Video Downloader works directly in your web browser. There's no need to download or install any additional software.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What video formats are supported?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We support MP4 (video), MP3 (audio), and various quality options including HD, Full HD, 2K, and 4K when available from the source.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is it legal to download videos?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Downloading videos for personal use is generally acceptable, but distributing copyrighted content may violate laws. Please respect copyright and use our service responsibly.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Why isn't my video downloading?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Some videos may be restricted by the content owner or platform. Try another video or contact us if the problem persists.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>All Hub Video Downloader</h3>
+                    <p>The fastest and easiest way to download videos from any platform. Free, unlimited, high-quality downloads.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#supported-sites">Supported Sites</a></li>
+                        <li><a href="#how-to-use">How to Use</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#" id="termsLink">Terms of Service</a></li>
+                        <li><a href="#" id="privacyLink">Privacy Policy</a></li>
+                        <li><a href="#" id="dmcaLink">DMCA</a></li>
+                        <li><a href="#" id="contactLink">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 All Hub Video Downloader. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="dark-mode-toggle" id="darkModeToggle">🌓</button>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h2 id="modalTitle">Modal Title</h2>
+            <div id="modalContent">
+                <p>Modal content goes here...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+        });
+
+        // Format selection
+        const formatOptions = document.querySelectorAll('.format-option');
+        formatOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                formatOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+            });
+        });
+
+        // FAQ accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const toggle = question.querySelector('.faq-toggle');
+                
+                answer.classList.toggle('active');
+                toggle.classList.toggle('active');
+            });
+        });
+
+        // Dark mode toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            // Save preference to localStorage
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            // Update button icon
+            darkModeToggle.textContent = isDarkMode ? '🌞' : '🌓';
+        });
+
+        // Check for saved dark mode preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+            darkModeToggle.textContent = '🌞';
+        }
+
+        // Modal functionality
+        const modal = document.getElementById('modal');
+        const closeModal = document.getElementById('closeModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalContent = document.getElementById('modalContent');
+        
+        // Links that open modals
+        const termsLink = document.getElementById('termsLink');
+        const privacyLink = document.getElementById('privacyLink');
+        const dmcaLink = document.getElementById('dmcaLink');
+        const contactLink = document.getElementById('contactLink');
+
+        function openModal(title, content) {
+            modalTitle.textContent = title;
+            modalContent.innerHTML = content;
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModalFunc() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        closeModal.addEventListener('click', closeModalFunc);
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModalFunc();
+            }
+        });
+
+        // Modal content
+        termsLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal('Terms of Service', `
+                <h3>1. Acceptance of Terms</h3>
+                <p>By using All Hub Video Downloader, you agree to these Terms of Service.</p>
+                
+                <h3>2. Service Description</h3>
+                <p>Our service allows users to download videos from various platforms for personal use.</p>
+                
+                <h3>3. User Responsibilities</h3>
+                <p>You agree to use our service legally and respect copyright laws.</p>
+                
+                <h3>4. Limitation of Liability</h3>
+                <p>We are not responsible for how you use downloaded content.</p>
+            `);
+        });
+
+        privacyLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal('Privacy Policy', `
+                <h3>1. Information We Collect</h3>
+                <p>We may collect non-personal information like browser type and IP address for analytics.</p>
+                
+                <h3>2. How We Use Information</h3>
+                <p>Information is used to improve our service and understand usage patterns.</p>
+                
+                <h3>3. Cookies</h3>
+                <p>We may use cookies to enhance user experience.</p>
+                
+                <h3>4. Third-Party Services</h3>
+                <p>We may use third-party analytics services that collect anonymous data.</p>
+            `);
+        });
+
+        dmcaLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal('DMCA Policy', `
+                <h3>Copyright Infringement Notification</h3>
+                <p>If you believe content downloaded through our service infringes your copyright, please contact us with:</p>
+                <ul>
+                    <li>Your contact information</li>
+                    <li>Description of the copyrighted work</li>
+                    <li>URL of the allegedly infringing content</li>
+                    <li>A statement of good faith belief</li>
+                    <li>Your electronic signature</li>
+                </ul>
+                <p>We will respond to valid DMCA notices promptly.</p>
+            `);
+        });
+
+        contactLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal('Contact Us', `
+                <h3>Have questions or feedback?</h3>
+                <p>We'd love to hear from you!</p>
+                
+                <p><strong>Email:</strong> support@allhubdownloader.com</p>
+                <p><strong>Note:</strong> This is a demo website. No actual contact information is provided.</p>
+            `);
+        });
+
+        // Video download functionality (simulated)
+        const downloadBtn = document.getElementById('downloadBtn');
+        const videoUrlInput = document.getElementById('videoUrl');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const resultsContainer = document.getElementById('resultsContainer');
+        const resultsList = document.getElementById('resultsList');
+
+        downloadBtn.addEventListener('click', () => {
+            const videoUrl = videoUrlInput.value.trim();
+            const selectedFormat = document.querySelector('.format-option.active').dataset.format;
+            
+            if (!videoUrl) {
+                alert('Please enter a video URL');
+                return;
+            }
+            
+            // Validate URL format
+            if (!isValidUrl(videoUrl)) {
+                alert('Please enter a valid URL (e.g., https://www.youtube.com/watch?v=...)');
+                return;
+            }
+            
+            // Show loading spinner
+            loadingSpinner.style.display = 'block';
+            resultsContainer.style.display = 'none';
+            
+            // Simulate API call with timeout
+            setTimeout(() => {
+                loadingSpinner.style.display = 'none';
+                
+                // Check if URL matches known patterns
+                if (videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be')) {
+                    showResults('YouTube', selectedFormat);
+                } else if (videoUrl.includes('facebook.com') || videoUrl.includes('fb.watch')) {
+                    showResults('Facebook', selectedFormat);
+                } else if (videoUrl.includes('instagram.com')) {
+                    showResults('Instagram', selectedFormat);
+                } else if (videoUrl.includes('tiktok.com')) {
+                    showResults('TikTok', selectedFormat);
+                } else {
+                    showResults('Other Platform', selectedFormat);
+                }
+            }, 1500);
+        });
+
+        function isValidUrl(url) {
+            try {
+                new URL(url);
+                return true;
+            } catch (e) {
+                return false;
+            }
+        }
+
+        function showResults(platform, format) {
+            resultsList.innerHTML = '';
+            
+            // Create mock download options based on platform and format
+            const formats = [];
+            
+            if (format === 'mp4') {
+                formats.push(
+                    { quality: '720p', size: '15MB', type: 'MP4' },
+                    { quality: '480p', size: '8MB', type: 'MP4' },
+                    { quality: '360p', size: '5MB', type: 'MP4' }
+                );
+            } else if (format === 'mp3') {
+                formats.push(
+                    { quality: '128 kbps', size: '3MB', type: 'MP3' },
+                    { quality: '192 kbps', size: '5MB', type: 'MP3' },
+                    { quality: '320 kbps', size: '8MB', type: 'MP3' }
+                );
+            } else if (format === 'hd') {
+                formats.push(
+                    { quality: '1080p', size: '25MB', type: 'MP4' },
+                    { quality: '720p', size: '15MB', type: 'MP4' }
+                );
+            } else if (format === '4k') {
+                formats.push(
+                    { quality: '4K', size: '120MB', type: 'MP4' },
+                    { quality: '1080p', size: '25MB', type: 'MP4' }
+                );
+            }
+            
+            // Add results to DOM
+            formats.forEach((format, index) => {
+                const item = document.createElement('div');
+                item.className = 'result-item';
+                
+                const info = document.createElement('div');
+                info.innerHTML = `<strong>${format.quality}</strong> · ${format.type} · ${format.size}`;
+                
+                const downloadBtn = document.createElement('a');
+                downloadBtn.href = '#';
+                downloadBtn.className = 'download-btn';
+                downloadBtn.textContent = 'Download';
+                downloadBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    alert(`This is a demo. In a real app, this would download the ${format.quality} ${format.type} version.`);
+                });
+                
+                item.appendChild(info);
+                item.appendChild(downloadBtn);
+                resultsList.appendChild(item);
+            });
+            
+            resultsContainer.style.display = 'block';
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    mainNav.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
